@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Keylogger</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #log {y
+            width: 50%;
+            height: 100px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic Keylogger</h1>
+    <p>This is a basic keylogger. Type something in the text area below to see it in action.</p>
+    <textarea id="input" cols="30" rows="10"></textarea>
+    <div id="log"></div>
+
+    <script>
+        const logElement = document.getElementById('log');
+        const inputElement = document.getElementById('input');
+
+        inputElement.addEventListener('input', function(event) {
+            const text = event.data;
+            logElement.innerText += text;
+            logElement.scrollTop = logElement.scrollHeight; 
+        });
+
+        
+        window.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
